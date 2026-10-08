@@ -2,99 +2,137 @@
 
 > 让 ChatGPT、Claude、Cursor 等支持 MCP 的 AI，以可见、可控、可审计的方式操作你的 Windows 电脑或云服务器。
 
-当前阶段：**架构设计 / MVP 基线冻结前**。
+当前阶段：**架构设计 / 目标形态冻结中**。
 
-## 项目目标
+## 产品方向
 
-GSX Remote Agent 不是另一个聊天客户端，也不是从零自建一套专有远程中继。
+GSX Remote Agent 采用 **ZeroTier 风格的轻 Agent + Web Control Plane**：
 
-它定位为一个 **Local-first AI Computer Agent**：
+- 每台设备只安装一个轻量 Agent；
+- Agent 主动出站连接，不要求用户开放本机入站端口；
+- 设备、连接、权限、日志、任务统一在 Web Console 管理；
+- AI Host 通过标准 MCP 调用设备能力；
+- 文件、Shell、Browser、Screenshot、Windows GUI 等能力在本机执行；
+- 高风险动作受 Policy / Approval / Audit 约束；
+- 用户可随时 Pause / Disconnect Agent；
+- Transport 可替换，不锁定 OpenAI 或任一 Hosted Relay。
 
-- 提供桌面 GUI 与系统托盘，普通用户安装后即可使用；
-- 通过标准 MCP 向 AI 暴露本机/服务器能力；
-- 文件、Shell、浏览器、截图、Windows GUI 等能力插件化；
-- 所有高风险操作经过统一权限策略与审计；
-- 传输层可替换：本地 MCP、OpenAI Secure MCP Tunnel、未来自建 Relay 均为适配器，而非核心依赖；
-- 优先复用成熟开源项目与官方协议，不重复造基础设施。
+一句话目标：
 
-## 架构原则
+> **像 ZeroTier 一样安装和管理设备，像 MCP 一样把设备能力提供给 AI。**
+
+## 目标架构
 
 ```text
-AI Host (ChatGPT / Claude / Cursor / ...)
+ChatGPT / Claude / Cursor / Codex
                 │
-                │ MCP
+               MCP
                 ▼
-        ┌──────────────────┐
-        │   MCP Gateway    │
-        └────────┬─────────┘
-                 │ Local RPC
-                 ▼
-┌──────────────────────────────────────┐
-│           GSX Agent Core             │
-│                                      │
-│  Capability Registry                 │
-│  Permission / Policy Engine          │
-│  Audit Log                           │
-│  Session / Task Manager              │
-└──────┬────────┬────────┬─────────────┘
-       │        │        │
-       ▼        ▼        ▼
-   Files/Shell Browser  Windows GUI ...
-               │
-         Playwright/CDP
-
-Desktop GUI: Tauri 2 + React
-Transport adapters: Local / OpenAI Tunnel / Future Relay
+┌──────────────────────────────────┐
+│       GSX Control Plane          │
+│  Device / Policy / Audit / MCP   │
+│          + Web Console           │
+└────────────────┬─────────────────┘
+                 │ Secure outbound channel
+        ┌────────┴────────┐
+        ▼                 ▼
+┌───────────────┐  ┌───────────────┐
+│ Windows Agent │  │ Linux Agent   │
+│ Files         │  │ Files         │
+│ Shell         │  │ Shell         │
+│ Browser       │  │ Process       │
+│ Windows GUI   │  │ Docker / Git  │
+└───────────────┘  └───────────────┘
 ```
 
-## MVP 范围
+本机 Agent 不做复杂 Dashboard，只保留：
 
-第一版只验证一个闭环：
+- Connected / Offline 状态；
+- Device ID / Agent Version；
+- Browser Bridge / Service 状态；
+- Open Web Console；
+- Pause / Reconnect / Exit；
+- 基础诊断和自动更新。
+
+## 第一阶段目标闭环
 
 ```text
-ChatGPT / MCP Host
-      → MCP Gateway
-      → Permission Engine
-      → Capability
-      → Windows / Browser
-      → Result + Audit Log
+Windows 安装 Agent
+→ Web Console 显示 Device Online
+→ 配置 Capability Policy
+→ ChatGPT 通过 MCP 调 device.health
+→ Control Plane 路由到 Agent
+→ Agent 本地执行
+→ 结果返回 ChatGPT
+→ Activity / Audit 可查看全过程
 ```
 
-P0/P1 能力：
+第一个里程碑不是“窗口画出来”，而是上面这条链路完整跑通。
 
-- 文件读取/写入
-- PowerShell / CMD
-- 进程与长任务管理
-- 截图
-- 可视化浏览器控制（Playwright/CDP，持久化浏览器 Profile）
-- Git / Docker 可通过受控 Shell 使用
-- GUI 中查看连接状态、能力权限、当前任务与日志
-- 托盘暂停 / 恢复 AI 控制
-- 高风险操作确认
+## MVP 能力顺序
+
+1. Device / Connection
+2. MCP Gateway
+3. Files / Shell / Process
+4. Browser Bridge（Playwright / CDP + Managed Profile）
+5. Policy / Approval / Audit
+6. Screenshot
+7. Windows GUI
+8. Installer / Auto Update / Recovery
 
 暂不作为 MVP 必做：
 
-- 自建 Hosted Relay
-- 全量远程桌面视频流
-- 多租户 SaaS
-- 自研模型或 Agent Planner
-- 完整跨平台 GUI 自动化
+- 自建完整 Hosted Relay；
+- 高带宽远程桌面视频流；
+- 多租户 SaaS；
+- 自研模型或 Agent Planner；
+- 复杂桌面端控制台。
 
-## 文档
+## 设计文档
 
+### 目标导向
+
+- [产品方向](docs/product/PRODUCT_DIRECTION.md)
+- [目标 UI](docs/product/TARGET_UI.md)
+- [关键执行流程](docs/product/KEY_FLOW.md)
+- [实现方向](docs/product/IMPLEMENTATION_DIRECTION.md)
+
+### 架构
+
+- [系统架构总览](docs/architecture/SYSTEM_OVERVIEW.md)
 - [架构设计](docs/ARCHITECTURE.md)
 - [MVP 路线图](docs/ROADMAP.md)
+
+### ADR
+
+- [ADR-001：Web Console First + Lightweight Agent](docs/adr/ADR-001-web-console-first.md)
+
+## Target References
+
+目标参考图存放在：
+
+```text
+assets/target-ui/
+```
+
+其中包括：
+
+- Web Console / Control Plane 产品形态参考；
+- 极简本机 Agent 客户端参考。
+
+这些图片用于约束产品方向，不作为像素级最终 UI 规范。
 
 ## Prior Art / Upstream
 
 当前重点研究与复用：
 
-- OpenAI `tunnel-client` — Secure MCP Tunnel，作为可选远程传输适配器
-- `wonderwhy-er/DesktopCommanderMCP` — 文件、Shell、进程、审计等能力设计参考
-- Remote Desktop Commander — 设备配对、在线状态、远程使用体验参考；Hosted Service 不作为开源核心依赖
-- Model Context Protocol official SDK
-- Tauri 2 — Desktop GUI / Tray
-- Playwright — 浏览器能力
+- ZeroTier — 轻 Agent + Central Web 管理产品形态参考；
+- OpenAI `tunnel-client` — Secure MCP Tunnel，可选远程传输适配器；
+- `wonderwhy-er/DesktopCommanderMCP` — Files / Shell / Process / 长任务能力设计参考；
+- Remote Desktop Commander — 设备配对、在线状态、远程使用体验参考，Hosted Service 不作为开源核心依赖；
+- Model Context Protocol official SDK；
+- Tauri 2 — 轻量 Windows Agent Shell / Tray；
+- Playwright — Browser Capability。
 
 ## License
 
