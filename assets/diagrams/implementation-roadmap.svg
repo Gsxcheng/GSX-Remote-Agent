@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="820" viewBox="0 0 1500 820">
+<defs><style>.bg{fill:#f8fafc}.box{fill:#fff;stroke:#cbd5e1;stroke-width:1.5}.done{fill:#eff6ff;stroke:#93c5fd}.milestone{fill:#f0fdf4;stroke:#86efac}.future{fill:#f8fafc;stroke:#cbd5e1}.title{font:700 24px Arial,'Microsoft YaHei';fill:#0f172a}.h{font:700 15px Arial,'Microsoft YaHei';fill:#0f172a}.t{font:13px Arial,'Microsoft YaHei';fill:#475569}.m{font:12px Arial,'Microsoft YaHei';fill:#64748b}.line{stroke:#94a3b8;stroke-width:2;fill:none}</style><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#94a3b8"/></marker></defs>
+<rect class="bg" width="1500" height="820"/><text class="title" x="54" y="58">GSX Remote Agent — Implementation Direction</text><text class="m" x="54" y="84">Build the execution loop first; expand capabilities only after the loop is observable and controllable.</text>
+
+<line class="line" x1="120" y1="170" x2="1370" y2="170" marker-end="url(#a)"/>
+<g>
+<rect class="done" x="55" y="125" width="170" height="90" rx="10"/><text class="h" x="140" y="155" text-anchor="middle">0. Design freeze</text><text class="t" x="140" y="180" text-anchor="middle">Architecture · UX</text><text class="m" x="140" y="201" text-anchor="middle">Contracts next</text>
+<rect class="box" x="245" y="125" width="170" height="90" rx="10"/><text class="h" x="330" y="155" text-anchor="middle">1. Agent skeleton</text><text class="t" x="330" y="180" text-anchor="middle">Rust · Tauri · Tray</text><text class="m" x="330" y="201" text-anchor="middle">Identity · Pause</text>
+<rect class="box" x="435" y="125" width="170" height="90" rx="10"/><text class="h" x="520" y="155" text-anchor="middle">2. Control Plane</text><text class="t" x="520" y="180" text-anchor="middle">Register · Presence</text><text class="m" x="520" y="201" text-anchor="middle">HTTPS / WSS</text>
+<rect class="box" x="625" y="125" width="170" height="90" rx="10"/><text class="h" x="710" y="155" text-anchor="middle">3. Web Console</text><text class="t" x="710" y="180" text-anchor="middle">Devices · Detail</text><text class="m" x="710" y="201" text-anchor="middle">ZeroTier-like UX</text>
+<rect class="milestone" x="815" y="125" width="190" height="90" rx="10"/><text class="h" x="910" y="155" text-anchor="middle">4. MCP first call</text><text class="t" x="910" y="180" text-anchor="middle">device.health</text><text class="m" x="910" y="201" text-anchor="middle">FIRST MILESTONE</text>
+<rect class="box" x="1025" y="125" width="170" height="90" rx="10"/><text class="h" x="1110" y="155" text-anchor="middle">5. Files / Shell</text><text class="t" x="1110" y="180" text-anchor="middle">Process · Long task</text><text class="m" x="1110" y="201" text-anchor="middle">Scopes · Cancel</text>
+<rect class="box" x="1215" y="125" width="170" height="90" rx="10"/><text class="h" x="1300" y="155" text-anchor="middle">6. Browser</text><text class="t" x="1300" y="180" text-anchor="middle">Playwright · CDP</text><text class="m" x="1300" y="201" text-anchor="middle">Managed profile</text>
+</g>
+
+<line class="line" x1="1370" y1="300" x2="120" y2="300" marker-end="url(#a)"/>
+<rect class="box" x="1215" y="255" width="170" height="90" rx="10"/><text class="h" x="1300" y="285" text-anchor="middle">7. Policy / Audit</text><text class="t" x="1300" y="310" text-anchor="middle">Allow · Ask · Deny</text><text class="m" x="1300" y="331" text-anchor="middle">Approval · Trace</text>
+<rect class="box" x="1025" y="255" width="170" height="90" rx="10"/><text class="h" x="1110" y="285" text-anchor="middle">8. Windows GUI</text><text class="t" x="1110" y="310" text-anchor="middle">UIA · Vision · Input</text><text class="m" x="1110" y="331" text-anchor="middle">Structured first</text>
+<rect class="milestone" x="815" y="255" width="190" height="90" rx="10"/><text class="h" x="910" y="285" text-anchor="middle">9. Productize</text><text class="t" x="910" y="310" text-anchor="middle">Installer · Update</text><text class="m" x="910" y="331" text-anchor="middle">Recovery · Diagnostics</text>
+<rect class="future" x="625" y="255" width="170" height="90" rx="10"/><text class="h" x="710" y="285" text-anchor="middle">10. Optional</text><text class="t" x="710" y="310" text-anchor="middle">Linux · Self-hosted</text><text class="m" x="710" y="331" text-anchor="middle">Team · Relay</text>
+
+<text class="title" x="54" y="440">First end-to-end milestone</text>
+<rect class="milestone" x="55" y="475" width="1330" height="165" rx="14"/>
+<text class="h" x="90" y="515">Windows PC installs GSX Agent</text><text class="t" x="90" y="545">→ Device appears Online in Web Console</text><text class="t" x="90" y="573">→ ChatGPT sends MCP tool call: device.health</text><text class="t" x="90" y="601">→ Control Plane routes request to the selected Agent</text><text class="t" x="735" y="545">→ Agent performs local policy check</text><text class="t" x="735" y="573">→ Result returns to ChatGPT</text><text class="t" x="735" y="601">→ Web Activity shows request, decision, result and duration</text>
+
+<text class="h" x="54" y="700">Implementation guardrails</text>
+<text class="t" x="54" y="730">• Do not start with a large desktop dashboard.  • Do not build a custom relay before the local/control-plane loop works.</text>
+<text class="t" x="54" y="758">• Do not add capabilities that bypass Policy / Audit.  • Web Console owns management UX; Agent owns local execution.</text>
+</svg>
