@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <style>
+      .bg{fill:#f7f9fc}.panel{fill:#fff;stroke:#dbe3ec;stroke-width:1}.nav{fill:#f1f5f9}.blue{fill:#2563eb}.green{fill:#16a34a}.amber{fill:#d97706}.red{fill:#dc2626}.text{font-family:Arial,'Microsoft YaHei',sans-serif;fill:#0f172a}.muted{font-family:Arial,'Microsoft YaHei',sans-serif;fill:#64748b}.small{font-size:14px}.body{font-size:16px}.title{font-size:24px;font-weight:700}.h2{font-size:18px;font-weight:700}.line{stroke:#e2e8f0;stroke-width:1}.chip{fill:#eff6ff;stroke:#bfdbfe}.greenchip{fill:#f0fdf4;stroke:#bbf7d0}.amberchip{fill:#fffbeb;stroke:#fde68a}
+    </style>
+  </defs>
+  <rect class="bg" width="1440" height="900"/>
+  <rect class="panel" x="30" y="28" width="1380" height="844" rx="12"/>
+  <rect class="nav" x="30" y="28" width="220" height="844" rx="12"/>
+  <text class="text title" x="58" y="75">GSX</text>
+  <text class="muted small" x="58" y="100">Remote Agent</text>
+  <g class="text body">
+    <rect class="blue" x="48" y="132" width="184" height="42" rx="8" opacity=".1"/><text x="72" y="159">Devices</text>
+    <text x="72" y="210">Connections</text><text x="72" y="260">Policies</text><text x="72" y="310">Activity</text><text x="72" y="360">Settings</text>
+  </g>
+  <text class="text title" x="286" y="72">Devices</text>
+  <text class="muted body" x="286" y="101">Manage computers and servers connected to GSX.</text>
+  <rect class="blue" x="1232" y="58" width="142" height="42" rx="8"/><text x="1261" y="84" fill="#fff" font-family="Arial,'Microsoft YaHei'" font-size="15">+ Add device</text>
+
+  <rect class="panel" x="286" y="128" width="1088" height="282" rx="10"/>
+  <text class="text h2" x="312" y="163">Device list</text>
+  <line class="line" x1="312" y1="182" x2="1346" y2="182"/>
+  <g class="muted small"><text x="312" y="211">NAME</text><text x="535" y="211">STATUS</text><text x="660" y="211">OS</text><text x="835" y="211">CONNECTION</text><text x="1035" y="211">CAPABILITIES</text><text x="1242" y="211">LAST SEEN</text></g>
+  <line class="line" x1="312" y1="228" x2="1346" y2="228"/>
+  <g class="text body"><text x="312" y="264">PC-01</text><circle class="green" cx="540" cy="258" r="5"/><text x="554" y="264">Online</text><text x="660" y="264">Windows 11</text><text x="835" y="264">Secure Tunnel</text><text x="1035" y="264">Files · Shell · Browser</text><text x="1242" y="264">just now</text></g>
+  <line class="line" x1="312" y1="284" x2="1346" y2="284"/>
+  <g class="text body"><text x="312" y="320">TX-VPS-01</text><circle class="green" cx="540" cy="314" r="5"/><text x="554" y="320">Online</text><text x="660" y="320">Ubuntu 24.04</text><text x="835" y="320">Direct</text><text x="1035" y="320">Files · Shell · Docker</text><text x="1242" y="320">12 sec</text></g>
+  <line class="line" x1="312" y1="340" x2="1346" y2="340"/>
+  <g class="text body"><text x="312" y="376">VM-01</text><circle cx="540" cy="370" r="5" fill="#94a3b8"/><text x="554" y="376">Offline</text><text x="660" y="376">Windows 11</text><text x="835" y="376">—</text><text x="1035" y="376">Files · Browser</text><text x="1242" y="376">3 days</text></g>
+
+  <rect class="panel" x="286" y="432" width="690" height="414" rx="10"/>
+  <text class="text h2" x="312" y="468">PC-01</text><circle class="green" cx="387" cy="462" r="5"/><text class="muted small" x="400" y="467">Online</text>
+  <g class="muted small"><text x="312" y="504">OVERVIEW</text><text x="420" y="504">CAPABILITIES</text><text x="555" y="504">BROWSER</text><text x="650" y="504">ACTIVITY</text><text x="742" y="504">SETTINGS</text></g><line class="line" x1="312" y1="520" x2="948" y2="520"/>
+  <text class="text h2" x="312" y="558">Device overview</text>
+  <g class="muted small"><text x="312" y="594">Hostname</text><text x="312" y="628">Agent</text><text x="312" y="662">Connection</text><text x="312" y="696">Browser bridge</text></g>
+  <g class="text body"><text x="480" y="594">GSX-PC</text><text x="480" y="628">v0.1.0</text><text x="480" y="662">Secure MCP · 38 ms</text><text x="480" y="696">Ready</text></g>
+  <text class="text h2" x="312" y="744">Capabilities</text>
+  <g><rect class="greenchip" x="312" y="762" width="110" height="34" rx="17"/><text class="text small" x="338" y="784">Files · Allow</text><rect class="amberchip" x="432" y="762" width="112" height="34" rx="17"/><text class="text small" x="456" y="784">Shell · Ask</text><rect class="greenchip" x="554" y="762" width="132" height="34" rx="17"/><text class="text small" x="578" y="784">Browser · Allow</text><rect class="chip" x="696" y="762" width="120" height="34" rx="17"/><text class="text small" x="721" y="784">GUI · Deny</text></g>
+
+  <rect class="panel" x="998" y="432" width="376" height="414" rx="10"/>
+  <text class="text h2" x="1024" y="468">Recent activity</text>
+  <g class="muted small"><text x="1024" y="504">TIME</text><text x="1100" y="504">TOOL</text><text x="1283" y="504">RESULT</text></g><line class="line" x1="1024" y1="520" x2="1348" y2="520"/>
+  <g class="text small"><text x="1024" y="554">12:31</text><text x="1100" y="554">device.health</text><text class="green" x="1283" y="554">Allowed</text><text x="1024" y="594">12:29</text><text x="1100" y="594">browser.open</text><text class="green" x="1283" y="594">Allowed</text><text x="1024" y="634">12:27</text><text x="1100" y="634">shell.exec</text><text class="amber" x="1283" y="634">Asked</text><text x="1024" y="674">12:25</text><text x="1100" y="674">filesystem.delete</text><text class="red" x="1283" y="674">Denied</text></g>
+  <line class="line" x1="1024" y1="704" x2="1348" y2="704"/>
+  <text class="muted small" x="1024" y="738">Primary UX: tables, detail tabs, policy decisions.</text><text class="muted small" x="1024" y="765">No decorative dashboard or heavy local console.</text>
+  <text class="muted small" x="286" y="868">Target reference — ZeroTier-like lightweight Agent + Web Control Plane. Not pixel-final UI.</text>
+</svg>
