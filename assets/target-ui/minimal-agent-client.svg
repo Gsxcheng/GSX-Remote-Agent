@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="760" viewBox="0 0 760 760">
+  <defs><style>.bg{fill:#eef4fb}.panel{fill:#fff;stroke:#dbe3ec}.text{font-family:Arial,'Microsoft YaHei',sans-serif;fill:#0f172a}.muted{font-family:Arial,'Microsoft YaHei',sans-serif;fill:#64748b}.blue{fill:#2563eb}.green{fill:#16a34a}.line{stroke:#e2e8f0}.btn{fill:#f8fafc;stroke:#cbd5e1}</style></defs>
+  <rect class="bg" width="760" height="760"/>
+  <rect class="panel" x="76" y="48" width="608" height="664" rx="16"/>
+  <rect x="76" y="48" width="608" height="62" rx="16" fill="#f8fafc"/><rect x="76" y="94" width="608" height="16" fill="#f8fafc"/>
+  <rect class="blue" x="98" y="66" width="30" height="30" rx="7"/><text x="105" y="88" fill="#fff" font-family="Arial" font-weight="700">G</text>
+  <text class="text" x="142" y="88" font-size="19" font-weight="700">GSX Remote Agent</text>
+  <rect class="panel" x="104" y="138" width="552" height="108" rx="12"/>
+  <rect x="128" y="164" width="64" height="56" rx="10" fill="#f1f5f9"/><rect x="143" y="174" width="34" height="24" rx="2" fill="none" stroke="#334155" stroke-width="3"/><line x1="160" y1="198" x2="160" y2="207" stroke="#334155" stroke-width="3"/><line x1="150" y1="207" x2="170" y2="207" stroke="#334155" stroke-width="3"/>
+  <text class="text" x="218" y="179" font-size="28" font-weight="700">PC-01</text><text class="muted" x="218" y="210" font-size="16">Windows 11 Pro · x64</text>
+  <circle class="green" cx="560" cy="178" r="7"/><text x="579" y="185" fill="#16a34a" font-family="Arial,'Microsoft YaHei'" font-size="20" font-weight="700">已连接</text><text class="muted" x="578" y="213" font-size="14">一切正常</text>
+  <rect class="panel" x="104" y="270" width="552" height="230" rx="12"/>
+  <g class="muted" font-size="15"><text x="132" y="310">Agent 版本</text><text x="132" y="352">连接状态</text><text x="132" y="394">浏览器桥接</text><text x="132" y="436">服务状态</text><text x="132" y="478">最后在线</text></g>
+  <g class="text" font-size="15" text-anchor="end"><text x="626" y="310">v0.1.0</text><text x="626" y="352">Secure MCP / Connected</text><text x="626" y="394">Ready</text><text x="626" y="436">Running</text><text x="626" y="478">just now</text></g>
+  <g class="line"><line x1="128" y1="326" x2="632" y2="326"/><line x1="128" y1="368" x2="632" y2="368"/><line x1="128" y1="410" x2="632" y2="410"/><line x1="128" y1="452" x2="632" y2="452"/></g>
+  <rect class="blue" x="104" y="526" width="552" height="58" rx="10"/><text x="380" y="562" fill="#fff" text-anchor="middle" font-family="Arial,'Microsoft YaHei'" font-size="18" font-weight="700">打开 Web 控制台</text>
+  <text class="muted" x="380" y="610" text-anchor="middle" font-size="14">设备、权限、连接和日志统一在 Web Console 管理</text>
+  <rect class="btn" x="104" y="634" width="166" height="48" rx="9"/><rect class="btn" x="296" y="634" width="166" height="48" rx="9"/><rect class="btn" x="488" y="634" width="168" height="48" rx="9"/>
+  <text class="text" x="187" y="664" text-anchor="middle" font-size="15">Pause Agent</text><text class="text" x="379" y="664" text-anchor="middle" font-size="15">Reconnect</text><text class="text" x="572" y="664" text-anchor="middle" font-size="15">Exit</text>
+  <text class="muted" x="104" y="704" font-size="13">☑ 开机自启</text><text x="656" y="704" fill="#2563eb" text-anchor="end" font-family="Arial,'Microsoft YaHei'" font-size="13">高级设置 ›</text>
+</svg>
