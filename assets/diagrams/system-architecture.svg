@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="900" viewBox="0 0 1500 900">
+<defs><style>.bg{fill:#f8fafc}.box{fill:#fff;stroke:#cbd5e1;stroke-width:1.5}.group{fill:#f1f5f9;stroke:#cbd5e1;stroke-width:1.5}.title{font:700 24px Arial,'Microsoft YaHei';fill:#0f172a}.h{font:700 17px Arial,'Microsoft YaHei';fill:#0f172a}.t{font:15px Arial,'Microsoft YaHei';fill:#334155}.m{font:13px Arial,'Microsoft YaHei';fill:#64748b}.blue{stroke:#2563eb;stroke-width:2;fill:none}.green{stroke:#16a34a;stroke-width:2;fill:none}.chip{fill:#eff6ff;stroke:#bfdbfe}.chipg{fill:#f0fdf4;stroke:#bbf7d0}</style><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker></defs>
+<rect class="bg" width="1500" height="900"/>
+<text class="title" x="56" y="58">GSX Remote Agent — Target System Architecture</text><text class="m" x="56" y="86">Lightweight Agent + Web Control Plane + MCP</text>
+<rect class="group" x="50" y="120" width="1400" height="120" rx="14"/><text class="h" x="76" y="151">AI Hosts</text>
+<rect class="box" x="210" y="145" width="210" height="68" rx="10"/><text class="h" x="315" y="174" text-anchor="middle">ChatGPT</text><text class="m" x="315" y="198" text-anchor="middle">Web / Work / MCP</text>
+<rect class="box" x="450" y="145" width="210" height="68" rx="10"/><text class="h" x="555" y="174" text-anchor="middle">Claude / Cursor</text><text class="m" x="555" y="198" text-anchor="middle">MCP Hosts</text>
+<rect class="box" x="690" y="145" width="210" height="68" rx="10"/><text class="h" x="795" y="174" text-anchor="middle">Codex / Others</text><text class="m" x="795" y="198" text-anchor="middle">MCP-compatible</text>
+<rect class="chip" x="1010" y="157" width="250" height="44" rx="22"/><text class="t" x="1135" y="184" text-anchor="middle">Standard MCP boundary</text>
+
+<line class="blue" x1="750" y1="240" x2="750" y2="285" marker-end="url(#a)"/>
+<rect class="group" x="50" y="285" width="1400" height="300" rx="14"/><text class="h" x="76" y="316">GSX Control Plane / Web Console</text>
+<rect class="box" x="110" y="345" width="230" height="90" rx="10"/><text class="h" x="225" y="377" text-anchor="middle">MCP Gateway</text><text class="m" x="225" y="401" text-anchor="middle">Schema · Session · Tool Call</text>
+<rect class="box" x="375" y="345" width="230" height="90" rx="10"/><text class="h" x="490" y="377" text-anchor="middle">Device Registry</text><text class="m" x="490" y="401" text-anchor="middle">Binding · Presence · Version</text>
+<rect class="box" x="640" y="345" width="230" height="90" rx="10"/><text class="h" x="755" y="377" text-anchor="middle">Policy / Approval</text><text class="m" x="755" y="401" text-anchor="middle">Allow · Ask · Deny</text>
+<rect class="box" x="905" y="345" width="230" height="90" rx="10"/><text class="h" x="1020" y="377" text-anchor="middle">Request Router</text><text class="m" x="1020" y="401" text-anchor="middle">Target device · Execution state</text>
+<rect class="box" x="1170" y="345" width="220" height="90" rx="10"/><text class="h" x="1280" y="377" text-anchor="middle">Activity / Audit</text><text class="m" x="1280" y="401" text-anchor="middle">Decision · Result · Trace</text>
+<rect class="box" x="110" y="470" width="1280" height="78" rx="10"/><text class="h" x="750" y="501" text-anchor="middle">Web Console</text><text class="t" x="750" y="527" text-anchor="middle">Devices · Connections · Policies · Activity · Settings</text>
+
+<line class="blue" x1="750" y1="585" x2="750" y2="635" marker-end="url(#a)"/>
+<text class="m" x="775" y="615">HTTPS/WSS outbound secure channel</text>
+<rect class="group" x="50" y="635" width="1400" height="210" rx="14"/><text class="h" x="76" y="666">Device / Server — GSX Agent</text>
+<rect class="box" x="100" y="700" width="200" height="90" rx="10"/><text class="h" x="200" y="730" text-anchor="middle">Agent Core</text><text class="m" x="200" y="754" text-anchor="middle">Identity · Connection · Task</text><text class="m" x="200" y="774" text-anchor="middle">Pause / Recovery</text>
+<rect class="box" x="330" y="700" width="200" height="90" rx="10"/><text class="h" x="430" y="730" text-anchor="middle">Local Policy</text><text class="m" x="430" y="754" text-anchor="middle">Second enforcement</text><text class="m" x="430" y="774" text-anchor="middle">Kill switch first</text>
+<rect class="box" x="560" y="700" width="200" height="90" rx="10"/><text class="h" x="660" y="730" text-anchor="middle">Files / Shell</text><text class="m" x="660" y="754" text-anchor="middle">Process · Long tasks</text>
+<rect class="box" x="790" y="700" width="200" height="90" rx="10"/><text class="h" x="890" y="730" text-anchor="middle">Browser Bridge</text><text class="m" x="890" y="754" text-anchor="middle">Playwright · CDP</text><text class="m" x="890" y="774" text-anchor="middle">Managed profile</text>
+<rect class="box" x="1020" y="700" width="200" height="90" rx="10"/><text class="h" x="1120" y="730" text-anchor="middle">Screenshot / GUI</text><text class="m" x="1120" y="754" text-anchor="middle">UIA · Vision · Input</text>
+<rect class="box" x="1250" y="700" width="150" height="90" rx="10"/><text class="h" x="1325" y="730" text-anchor="middle">Extensions</text><text class="m" x="1325" y="754" text-anchor="middle">Docker · Git</text><text class="m" x="1325" y="774" text-anchor="middle">SSH · Future</text>
+<text class="m" x="56" y="875">Principle: the cloud manages identity, policy, routing and audit; the device performs sensitive execution locally.</text>
+</svg>
