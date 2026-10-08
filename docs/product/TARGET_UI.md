@@ -60,63 +60,33 @@ Overview | Capabilities | Browser | Activity | Settings
 
 ### Overview
 
-展示：
-
-- Device Name
-- Online State
-- OS / Hostname
-- Agent Version
-- Device ID
-- Current Connection
-- Last Seen
-- Browser Bridge State
-- 当前运行任务
+展示：Device Name、Online State、OS / Hostname、Agent Version、Device ID、Current Connection、Last Seen、Browser Bridge State、当前运行任务。
 
 ### Capabilities
 
-权限不是简单 Enabled / Disabled，而是统一三态：
+权限统一三态：
 
 ```text
-Allow
-Ask
-Deny
+Allow / Ask / Deny
 ```
 
-可进一步限制：
-
-- Path Scope
-- Program Scope
-- Domain Scope
-- Command Scope
-- Risk Level
+可进一步限制 Path Scope、Program Scope、Domain Scope、Command Scope、Risk Level。
 
 ### Browser
 
-展示：
-
-- Browser Worker 状态；
-- Managed Profile；
-- 当前 URL；
-- 登录状态提示；
-- 打开 / 重启浏览器；
-- 最近 Browser 操作；
-- 必要时查看当前截图。
+展示 Browser Worker、Managed Profile、当前 URL、登录状态、打开 / 重启浏览器、最近操作和必要截图。
 
 ### Activity
-
-时间线 / 表格：
 
 ```text
 Time | Source | Tool | Target | Decision | Result | Duration
 ```
 
-点击一条记录可以查看参数摘要、授权决策和结果摘要。
+点击记录查看参数摘要、授权决策和结果摘要。
 
 ## 5. Policies
 
 以规则表格为主，不做复杂可视化编排器。
-
-示例：
 
 | Scope | Capability | Target | Action |
 |---|---|---|---|
@@ -128,33 +98,9 @@ Time | Source | Tool | Target | Decision | Result | Duration
 
 ## 6. 本机 Agent UI
 
-本机窗口目标极简：
+本机窗口目标极简，只显示连接状态、设备信息、浏览器桥、服务状态，以及 Open Web Console / Pause / Reconnect / Exit。
 
-```text
-┌────────────────────────────────────┐
-│ GSX Remote Agent                   │
-├────────────────────────────────────┤
-│ PC-01                    ● Connected│
-│ Windows 11 Pro                      │
-│                                     │
-│ Connection       Secure / Connected │
-│ Browser Bridge   Ready              │
-│ Service          Running            │
-│ Last Seen        just now           │
-│                                     │
-│        [ Open Web Console ]         │
-│                                     │
-│ [ Pause Agent ] [ Reconnect ] [Exit]│
-└────────────────────────────────────┘
-```
-
-高级设置只保留：
-
-- 开机启动；
-- 自动更新；
-- Web Console URL；
-- 本地诊断；
-- 重置设备绑定。
+高级设置仅保留开机启动、自动更新、Web Console URL、本地诊断、重置设备绑定。
 
 ## 7. Tray
 
@@ -171,9 +117,12 @@ Exit
 
 ## 8. 目标参考图
 
-仓库图片：
+### Web Console
 
-- `assets/target-ui/web-console-product-reference.png`
-- `assets/target-ui/minimal-agent-client.png`
+![Web Console target](../../assets/target-ui/web-console-product-reference.svg)
 
-这些图片是**目标导向参考**，不是像素级最终规范。实现时优先遵守本文的信息架构和简洁原则。
+### Local Agent
+
+![Minimal Agent target](../../assets/target-ui/minimal-agent-client.svg)
+
+这些 SVG 是**目标导向参考**，不是像素级最终规范。实现时优先遵守本文的信息架构和简洁原则。
