@@ -4,6 +4,8 @@
 
 当前阶段：**架构设计 / 目标形态冻结中**。
 
+> **后续开发的统一目标导向入口：[`docs/DESIGN_TARGET.md`](docs/DESIGN_TARGET.md)**
+
 ## 产品方向
 
 GSX Remote Agent 采用 **ZeroTier 风格的轻 Agent + Web Control Plane**：
@@ -23,27 +25,7 @@ GSX Remote Agent 采用 **ZeroTier 风格的轻 Agent + Web Control Plane**：
 
 ## 目标架构
 
-```text
-ChatGPT / Claude / Cursor / Codex
-                │
-               MCP
-                ▼
-┌──────────────────────────────────┐
-│       GSX Control Plane          │
-│  Device / Policy / Audit / MCP   │
-│          + Web Console           │
-└────────────────┬─────────────────┘
-                 │ Secure outbound channel
-        ┌────────┴────────┐
-        ▼                 ▼
-┌───────────────┐  ┌───────────────┐
-│ Windows Agent │  │ Linux Agent   │
-│ Files         │  │ Files         │
-│ Shell         │  │ Shell         │
-│ Browser       │  │ Process       │
-│ Windows GUI   │  │ Docker / Git  │
-└───────────────┘  └───────────────┘
-```
+![System Architecture](assets/diagrams/system-architecture.svg)
 
 本机 Agent 不做复杂 Dashboard，只保留：
 
@@ -92,6 +74,7 @@ Windows 安装 Agent
 
 ### 目标导向
 
+- [Design Target 总入口](docs/DESIGN_TARGET.md)
 - [产品方向](docs/product/PRODUCT_DIRECTION.md)
 - [目标 UI](docs/product/TARGET_UI.md)
 - [关键执行流程](docs/product/KEY_FLOW.md)
@@ -109,18 +92,15 @@ Windows 安装 Agent
 
 ## Target References
 
-目标参考图存放在：
+目标图全部使用仓库内可维护的 SVG：
 
-```text
-assets/target-ui/
-```
+- [`assets/target-ui/web-console-product-reference.svg`](assets/target-ui/web-console-product-reference.svg)
+- [`assets/target-ui/minimal-agent-client.svg`](assets/target-ui/minimal-agent-client.svg)
+- [`assets/diagrams/system-architecture.svg`](assets/diagrams/system-architecture.svg)
+- [`assets/diagrams/key-execution-flow.svg`](assets/diagrams/key-execution-flow.svg)
+- [`assets/diagrams/implementation-roadmap.svg`](assets/diagrams/implementation-roadmap.svg)
 
-其中包括：
-
-- Web Console / Control Plane 产品形态参考；
-- 极简本机 Agent 客户端参考。
-
-这些图片用于约束产品方向，不作为像素级最终 UI 规范。
+这些图用于约束产品方向，不作为像素级最终 UI 规范。
 
 ## Prior Art / Upstream
 
